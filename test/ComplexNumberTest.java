@@ -11,7 +11,7 @@ public class ComplexNumberTest{
 	@Test
 	public void should_be_represented_in_x_minus_i_y_form_for_negative_imaginary_numbers(){
 		ComplexNumber a = new ComplexNumber(2,-3);
-		assertEquals("2 - 3i",a.toString());	
+		assertEquals("2-3i",a.toString());	
 	}
 	@Test
 	public void should_be_represented_in_minus_x_minus_i_y_form_for_negative_real_and_imaginary_numbers(){
