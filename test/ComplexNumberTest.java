@@ -11,18 +11,18 @@ public class ComplexNumberTest{
 	@Test
 	public void should_be_represented_in_x_minus_i_y_form_for_negative_imaginary_numbers(){
 		ComplexNumber a = new ComplexNumber(2,-3);
-		assertEquals("2-3i",a.toString());	
+		assertEquals("2 - 3i",a.toString());	
 	}
 	@Test
 	public void should_be_represented_in_minus_x_minus_i_y_form_for_negative_real_and_imaginary_numbers(){
 		ComplexNumber a = new ComplexNumber(-2,-3);
-		assertEquals("-2-3i",a.toString());	
+		assertEquals("-2-3i",a.toString());
 	}
 
 	@Test
 	public void should_be_represented_in_minus_x_plus_i_y_form_for_negative_real_and_positive_imaginary_numbers(){
 		ComplexNumber a = new ComplexNumber(-2,3);
-		assertEquals("-2+3i",a.toString());	
+		assertEquals("-2+3i",a.toString());
 	}
 
 	@Test
@@ -69,35 +69,35 @@ public class ComplexNumberTest{
 	@Test
 	public void a_complex_number_is_equal_to_itself(){
 		ComplexNumber a = new ComplexNumber(1,2);
-		assertEquals(a,a);	
+		assertEquals(a,a);
 	}
 
 	@Test
 	public void two_complex_numbers_are_equal_if_they_have_same_values(){
 		ComplexNumber a = new ComplexNumber(1,2);
 		ComplexNumber b = new ComplexNumber(1,2);
-		assertEquals(a,b);	
+		assertEquals(a,b);
 	}
 
 	@Test
 	public void two_complex_numbers_are_not_equal_if_they_have_different_real_values(){
 		ComplexNumber a = new ComplexNumber(1,2);
 		ComplexNumber b = new ComplexNumber(2,2);
-		assertNotEquals(a,b);	
+		assertNotEquals(a,b);
 	}
 
 	@Test
 	public void two_complex_numbers_are_not_equal_if_they_have_different_imaginary_values(){
 		ComplexNumber a = new ComplexNumber(2,1);
 		ComplexNumber b = new ComplexNumber(2,2);
-		assertNotEquals(a,b);	
+		assertNotEquals(a,b);
 	}
 
 	@Test
 	public void a_complex_numbers_is_not_equal_to_some_other_object_type(){
 		ComplexNumber a = new ComplexNumber(1,2);
 		String b = "Baaageeecha";
-		assertNotEquals(a,b);	
+		assertNotEquals(a,b);
 	}
 
 	@Test
