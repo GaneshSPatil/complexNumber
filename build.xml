@@ -5,6 +5,8 @@
     </target>
 
 	<target name="compile" depends="clean">
+		<property environment="env"/>
+  		<echo message="Number of Tests = ${env.test}"/>
         <mkdir dir="out"/>
         <javac srcdir="src" destdir="out" includeantruntime="false"/>
         <javac srcdir="test" destdir="out" classpath="lib/junit-4.12.jar" includeantruntime="false"/>
@@ -20,12 +22,9 @@
 			<test name="ComplexNumberTest"></test>
 		</junit>
 		<fail message="Test failure detected, check test results." if="test.failed" />
-
-
-
-
-
     </target>
+
+
 
     <target name="run" depends="compile">
 		<java classname="Sample" classpath="out">
