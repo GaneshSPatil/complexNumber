@@ -1,18 +1,26 @@
 <project name="ComplexNumberApp" basedir="." default="test">
+	<property environment="env"/>
 
-	<target name="clean" description="swachh environment abhiyaan">
+	<target name="check" unless="isEqual">
+		<fail> env variable test is not equal to 'testing'</fail>
+	</target>
+
+	<target name="clean" depends="check" description="swachh environment abhiyaan">
         <delete dir="out"/>
     </target>
 
 	<target name="compile" depends="clean">
-		<property environment="env"/>
-  		<echo message="Number of Tests = ${env.test}"/>
         <mkdir dir="out"/>
         <javac srcdir="src" destdir="out" includeantruntime="false"/>
         <javac srcdir="test" destdir="out" classpath="lib/junit-4.12.jar" includeantruntime="false"/>
     </target>
 
-	<target name="test" depends="compile">
+	<condition property="isEqual">
+	    <equals arg1="${env.test}" arg2="testing"/>
+	</condition>
+
+	<target name="test" depends="compile" if="isEqual">
+		<echo message="${env.test}"/>
 		<junit haltonfailure="no" failureproperty="test.failed" printsummary="on" showoutput="Yes">
 			<classpath>
 				<pathelement location="out"></pathelement>
@@ -23,8 +31,6 @@
 		</junit>
 		<fail message="Test failure detected, check test results." if="test.failed" />
     </target>
-
-
 
     <target name="run" depends="compile">
 		<java classname="Sample" classpath="out">
