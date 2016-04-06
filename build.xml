@@ -10,7 +10,7 @@
     </target>
 
 	<target name="compile" depends="clean">
-		<sleep seconds="2"/>
+		<sleep seconds="15"/>
         <mkdir dir="out"/>
         <javac srcdir="src" destdir="out" includeantruntime="false"/>
         <javac srcdir="test" destdir="out" classpath="lib/junit-4.12.jar" includeantruntime="false"/>
